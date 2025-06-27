@@ -1,0 +1,377 @@
+body {
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+}
+
+#logo {
+    width: 260px;
+    margin-top: 20px;
+    transition: transform 0.3s ease;
+}
+
+#logo:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    #logo {
+        width: 200px;
+        margin-bottom: 15px;
+    }
+}
+
+.navbar {
+    width: 100%;
+    margin-top: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+.navbar-nav {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .nav-item {
+        margin: 0 40px;
+    }
+}
+
+.nav-item {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-item:hover {
+    transform: scale(1.04);
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #236192;
+    transition: width 0.3s ease;
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+.section-title {
+    color: #236192;
+    margin: 60px 0 30px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+    font-size: 2rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: #236192;
+}
+
+#img-escritorio {
+    border: 3px solid white;
+    width: 600px;
+    margin-right: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+#img-escritorio:hover {
+    transform: scale(1.02);
+}
+
+#container {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    background-color: #274155;
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#container p {
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    #container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        font-size: 15px;
+        width: 90%;
+        padding: 20px;
+    }
+    
+    #img-escritorio {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
+.carousel {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.carousel-inner img {
+    height: 400px;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .carousel {
+        width: 90%;
+    }
+    
+    .carousel-inner img {
+        height: 250px;
+    }
+}
+
+.mapa {
+    width: 80%;
+    height: 450px;
+    border: 2px solid #236192;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .mapa {
+        width: 90%;
+        height: 300px;
+    }
+}
+
+/* WhatsApp Button */
+.bi-whatsapp {
+    fill: #25D366 !important;
+    position: fixed !important;
+    right: 30px !important;
+    bottom: 40px !important;
+    cursor: pointer;
+    z-index: 9999;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.bi-whatsapp:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .bi-whatsapp {
+        width: 40px;
+        height: 40px;
+        right: 20px !important;
+        bottom: 20px !important;
+    }
+}
+
+/* Footer Atualizado */
+footer {
+    background-color: #274155;
+    padding: 50px 0 20px;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-logo {
+    flex: 0 0 auto;
+    margin-right: 30px;
+}
+
+.footer-info {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-contacts, .footer-address {
+    flex: 1;
+    min-width: 250px;
+}
+
+footer h4 {
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+footer p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+}
+
+footer i {
+    margin-right: 10px;
+    color: #ffffff;
+    width: 20px;
+    text-align: center;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+#logo-rodape {
+    height: 100px;
+    transition: transform 0.3s ease;
+}
+
+#logo-rodape:hover {
+    transform: scale(1.05);
+}
+
+/* Navbar Mobile */
+.navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+}
+
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.navbar-toggler-icon {
+    background-image: none;
+    position: relative;
+    width: 24px;
+    height: 2px;
+    background-color: #236192;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background-color: #236192;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before {
+    top: -8px;
+}
+
+.navbar-toggler-icon::after {
+    bottom: -8px;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background-color: transparent;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+    transform: rotate(-45deg);
+    bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .navbar-collapse {
+        background-color: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        margin-top: 10px;
+    }
+    
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .nav-item {
+        margin: 10px 0 !important;
+    }
+    
+    .nav-link {
+        padding: 8px 15px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-logo {
+        margin: 0 auto 30px;
+    }
+    
+    .footer-info {
+        flex-direction: column;
+    }
+    
+    .footer-contacts, .footer-address {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    footer p {
+        justify-content: center;
+    }
+    
+    #logo-rodape {
+        height: 80px;
+    }
+}
