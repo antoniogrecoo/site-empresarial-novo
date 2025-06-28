@@ -22,7 +22,7 @@ body {
   color: var(--text-color);
   line-height: 1.6;
   background-color: var(--bg-light);
-  padding-top: 100px;
+  padding-top: 90px; /* Ajustado para o navbar fixo */
 }
 
 .container {
@@ -32,91 +32,60 @@ body {
   padding: 0 20px;
 }
 
-/* Header */
-.header {
-  background-color: var(--white);
+/* Navbar Corrigido */
+.navbar {
+  padding: 15px 0;
+  transition: all 0.3s;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-  padding: 10px 0;
 }
 
-.header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.navbar-brand img {
+  transition: transform 0.3s;
+  height: 60px;
 }
 
-#logo {
-  height: 80px;
-  transition: transform 0.3s ease;
-}
-
-#logo:hover {
+.navbar-brand img:hover {
   transform: scale(1.05);
 }
 
-.navbar {
-  padding: 0;
-}
-
-.navbar-toggler {
-  border: none;
-  padding: 0.5rem;
-  font-size: 1.5rem;
-}
-
-.navbar-toggler:focus {
-  outline: none;
-  box-shadow: none;
-}
-
-.navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-nav {
-  display: flex;
-  gap: 30px;
-}
-
 .nav-item {
-  list-style: none;
-  display: flex;
-  align-items: center;
+  margin: 0 10px;
+  position: relative;
 }
 
 .nav-link {
-  color: var(--text-color);
-  text-decoration: none;
+  color: var(--primary-color) !important;
   font-weight: 500;
-  font-size: 1.1rem;
+  padding: 8px 15px !important;
+  transition: all 0.3s;
   position: relative;
-  padding: 5px 0;
-  transition: color 0.3s ease;
-}
-
-.nav-link:hover, 
-.nav-link.active {
-  color: var(--primary-color);
 }
 
 .nav-link::after {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 0;
-  width: 0;
+  left: 15px;
+  width: calc(100% - 30px);
   height: 2px;
-  background-color: var(--primary-color);
-  transition: width 0.3s ease;
+  background: var(--primary-color);
+  transform: scaleX(0);
+  transition: transform 0.3s;
 }
 
-.nav-link:hover::after, 
+.nav-link:hover::after,
 .nav-link.active::after {
-  width: 100%;
+  transform: scaleX(1);
+}
+
+.navbar-toggler {
+  border: none;
+  padding: 0.5rem;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 /* Hero Banner */
@@ -382,26 +351,24 @@ section {
 
 /* Footer */
 .footer {
-    background-color: var(--white);
+    background-color: #274155;
     padding: 50px 0 20px;
-    border-top: 1px solid #eee;
+    width: 100%;
+    margin-top: 50px;
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-#logo-rodape {
-    height: 100px;
+.footer-logo {
+    flex: 0 0 auto;
     margin-right: 30px;
-    transition: transform 0.3s ease;
-}
-
-#logo-rodape:hover {
-    transform: scale(1.05);
 }
 
 .footer-info {
@@ -417,21 +384,22 @@ section {
     min-width: 250px;
 }
 
-.footer h4 {
-    color: var(--primary-color);
+footer h4 {
+    color: #ffffff;
     margin-bottom: 20px;
     font-size: 1.2rem;
 }
 
-.footer p {
+footer p {
     margin-bottom: 10px;
     display: flex;
     align-items: center;
+    color: #ffffff;
 }
 
-.footer i {
+footer i {
     margin-right: 10px;
-    color: var(--primary-color);
+    color: #ffffff;
     width: 20px;
     text-align: center;
 }
@@ -439,34 +407,19 @@ section {
 .footer-bottom {
     text-align: center;
     padding-top: 20px;
-    border-top: 1px solid #eee;
-    color: var(--light-text);
+    margin-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
     font-size: 0.9rem;
 }
 
-/* Responsividade do Footer */
-@media (max-width: 768px) {
-    .footer-content {
-        flex-direction: column;
-    }
-    
-    #logo-rodape {
-        margin: 0 auto 30px;
-        display: block;
-    }
-    
-    .footer-info {
-        flex-direction: column;
-    }
-    
-    .footer-contacts, .footer-address {
-        margin-bottom: 20px;
-        text-align: center;
-    }
-    
-    .footer p {
-        justify-content: center;
-    }
+#logo-rodape {
+    height: 100px;
+    transition: transform 0.3s ease;
+}
+
+#logo-rodape:hover {
+    transform: scale(1.05);
 }
 
 /* WhatsApp Float */
@@ -491,61 +444,20 @@ section {
 .whatsapp-float:hover {
   transform: scale(1.1);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-  color: var(--white);
-}
-
-/* Melhorias para o menu mobile */
-.navbar-toggler-icon {
-  background-image: none;
-  position: relative;
-  width: 24px;
-  height: 2px;
-  background-color: var(--primary-color);
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.navbar-toggler-icon::before,
-.navbar-toggler-icon::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  width: 24px;
-  height: 2px;
-  background-color: var(--primary-color);
-  transition: all 0.3s ease;
-}
-
-.navbar-toggler-icon::before {
-  top: -8px;
-}
-
-.navbar-toggler-icon::after {
-  bottom: -8px;
-}
-
-.navbar-toggler.active .navbar-toggler-icon {
-  background-color: transparent;
-}
-
-.navbar-toggler.active .navbar-toggler-icon::before {
-  transform: rotate(45deg);
-  top: 0;
-}
-
-.navbar-toggler.active .navbar-toggler-icon::after {
-  transform: rotate(-45deg);
-  bottom: 0;
 }
 
 /* Responsividade */
 @media (max-width: 992px) {
-  #logo {
-    height: 70px;
+  .navbar-collapse {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    margin-top: 15px;
   }
   
-  .navbar-nav {
-    gap: 20px;
+  .nav-item {
+    margin: 5px 0 !important;
   }
   
   .hero-title {
@@ -560,46 +472,29 @@ section {
     order: -1;
     margin-bottom: 30px;
   }
+  
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer-logo {
+    margin: 0 auto 30px;
+  }
+  
+  .footer-info {
+    flex-direction: column;
+  }
+  
+  .footer-contacts, .footer-address {
+    text-align: center;
+    margin-bottom: 20px;
+  }
 }
 
 @media (max-width: 768px) {
   body {
-    padding-top: 90px;
-  }
-  
-  .header-content {
-    flex-wrap: wrap;
-  }
-  
-  #logo {
-    height: 60px;
-    margin-right: auto;
-  }
-  
-  .navbar-toggler {
-    order: 2;
-    margin-left: auto;
-  }
-  
-  .navbar-collapse {
-    width: 100%;
-    order: 3;
-    margin-top: 15px;
-    background-color: var(--white);
-    padding: 15px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-  }
-  
-  .navbar-nav {
-    flex-direction: column;
-    gap: 15px;
-    align-items: flex-start;
-  }
-  
-  .hero-banner {
-    height: auto;
-    padding: 100px 0;
+    padding-top: 80px;
   }
   
   .hero-title {
@@ -614,27 +509,12 @@ section {
     font-size: 1.8rem;
   }
   
-  .footer-content {
-    flex-direction: column;
-  }
-  
-  #logo-rodape {
-    margin: 0 auto 30px;
-    display: block;
-  }
-  
-  .footer-info {
-    flex-direction: column;
-  }
-  
-  .cta-buttons {
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .cta-button {
-    display: block;
-    text-align: center;
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    bottom: 20px;
+    right: 20px;
   }
 }
 
@@ -645,18 +525,6 @@ section {
   
   .service-card {
     padding: 20px;
-  }
-  
-  .whatsapp-float {
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
-    bottom: 20px;
-    right: 20px;
-  }
-  
-  .hero-title {
-    font-size: 1.8rem;
   }
   
   .section-title {

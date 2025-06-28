@@ -1,43 +1,37 @@
 document.addEventListener("DOMContentLoaded", function() {
-  // Navbar scroll effect
-  const header = document.querySelector('.header');
-  const heroSection = document.querySelector('.hero-banner');
+  // Efeito de scroll no navbar
+  const navbar = document.querySelector('.navbar');
   
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > 100) {
-      header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-    } else {
-      header.style.boxShadow = 'none';
-    }
-  });
-
-  // Smooth scrolling for navigation links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-      
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop - 80,
-          behavior: 'smooth'
-        });
+  if (navbar) {
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        navbar.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+        navbar.style.padding = '10px 0';
+      } else {
+        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        navbar.style.padding = '15px 0';
       }
     });
-  });
+  }
 
-  // Testimonials carousel
-  $('#testimonialsCarousel').carousel({
-    interval: 5000,
-    pause: 'hover'
-  });
+  // Fechar menu mobile ao clicar em um link
+  const navLinks = document.querySelectorAll('.nav-link');
+  const navbarToggler = document.querySelector('.navbar-toggler');
+  const navbarCollapse = document.querySelector('.navbar-collapse');
+  
+  if (navLinks && navbarToggler && navbarCollapse) {
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (navbarCollapse.classList.contains('show')) {
+          navbarToggler.click();
+        }
+      });
+    });
+  }
 
-  // Animation on scroll
+  // Animação de scroll para elementos
   const animateOnScroll = function() {
-    const elements = document.querySelectorAll('.service-card, .about-content, .testimonial-card, .cta-content');
+    const elements = document.querySelectorAll('.service-card, .about-content, .testimonial-card');
     
     elements.forEach(element => {
       const elementPosition = element.getBoundingClientRect().top;
@@ -50,34 +44,21 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   };
 
-  // Set initial state for animated elements
-  const animatedElements = document.querySelectorAll('.service-card, .about-content, .testimonial-card, .cta-content');
+  // Inicializar elementos animados
+  const animatedElements = document.querySelectorAll('.service-card, .about-content, .testimonial-card');
   animatedElements.forEach(element => {
     element.style.opacity = '0';
     element.style.transform = 'translateY(30px)';
     element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
   });
 
-  // Run once on load
+  // Executar animações
   animateOnScroll();
-  
-  // Run on scroll
   window.addEventListener('scroll', animateOnScroll);
 
-  // Mobile menu toggle
-  const navbarToggler = document.querySelector('.navbar-toggler');
-  const navbarCollapse = document.querySelector('.navbar-collapse');
-  
-  navbarToggler.addEventListener('click', function() {
-    navbarCollapse.classList.toggle('show');
-  });
-
-  // Close mobile menu when clicking a link
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', function() {
-      if (navbarCollapse.classList.contains('show')) {
-        navbarCollapse.classList.remove('show');
-      }
-    });
+  // Carousel de depoimentos
+  $('#testimonialsCarousel').carousel({
+    interval: 5000,
+    pause: 'hover'
   });
 });
